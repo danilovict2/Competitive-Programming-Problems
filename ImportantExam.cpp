@@ -33,7 +33,7 @@ void solve(){
         }
         ans+=ma*a[i];
     }
-    cout<<ans<<endl;
+    cout<<ans<<endl; 
     
 }
 
