@@ -1,33 +1,25 @@
-/*sortbysecond*/
-#include <iostream>
-#include <string>
+/*sortbysec*/
 #include <bits/stdc++.h>
 #define ll long long
 #define ull unsigned long long
 using namespace std;
 
-int n,m;
+int t;
+ll n;
 
 
 void solve(){
-    int a[m];
-    int sum=0;
-    for(int i=0;i<m;++i){
-        a[i] = n/m;
-        sum+=a[i];
-    }
-    int i=0;
-    n-=sum;
-    while(n>0){
-        n--;
-        a[i]++;
-        i++;
-    }
-    for(int i=0;i<m;++i)cout<<a[i]<<" ";
+	cin>>n;
+	for(int i = 2;i<=29;++i){
+		if(n % ((1 << i) - 1) == 0){
+			cout<<n/((1 << i) - 1)<<endl;
+			break;
+		}
+	}
 }
 
 int main(void){
-    cin>>n>>m;
-    solve();
+	cin>>t;
+	while(t--)solve();
     return 0;
 }
