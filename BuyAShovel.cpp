@@ -20,6 +20,6 @@ void solve(){
 
 int main(void){
     cin>>k>>r;
-	solve();
+	solve(); 
 	return 0;
 }
