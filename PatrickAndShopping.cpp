@@ -19,8 +19,3 @@ int main(void){
     solve();
     return 0;
 }
-
-/*
-res = 33
-res+= 34 = 67
-*/ 
