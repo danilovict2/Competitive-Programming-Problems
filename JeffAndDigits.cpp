@@ -9,12 +9,13 @@ void solve(){
     cin>>n;
     for(int i=0;i<n;++i){
         cin>>t;
-        (t==5)?f++:z++;
+        if(t==5)f++;
+        else z++;
     }
     if(z==0)cout<<-1<<endl;
     else if(f<9)cout<<0<<endl;
     else{
-        f-=f%5;
+        f-=f%9;
         for(int i=0;i<f;++i)cout<<5;
         for(int i=0;i<z;++i)cout<<0;
         cout<<endl;
