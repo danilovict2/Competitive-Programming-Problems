@@ -13,19 +13,33 @@ int t,n,m;
 
 
 void solve(){
-	cin>>n>>m;
-	int a[n],p[m];
-	for(int i=0;i<n;++i)cin>>a[i];
-	for(int i=0;i<m;++i)cin>>p[i];
-	for(int i=0;i<n-1;++i){
-		bool canChange=false;
-		if(a[i]>a[i+1]){
-			for(int j=0;j<m;++j)
-				if(p[j]==i+1){canChange = true; break;}
-		}else canChange = true;
-		if(!canChange){cout<<"NO"<<endl; return;}
-	}
-	cout<<"YES"<<endl;
+		cin >> n >> m;
+		vector<int> a(n);
+		for (int i = 0; i < n; ++i) {
+			cin >> a[i];
+		}
+		vector<int> p(n);
+		for (int i = 0; i < m; ++i) {
+			int pos;
+			cin >> pos;
+			p[pos - 1] = 1;
+		}
+		while (true) {
+			bool ok = false;
+			for (int i = 0; i < n; ++i) {
+				if (p[i] && a[i] > a[i + 1]) {
+					ok = true;
+					swap(a[i], a[i + 1]);
+				}
+			}
+			if (!ok) break;
+		}
+		bool ok = true;
+		for (int i = 0; i < n - 1; ++i) {
+			ok &= a[i] <= a[i + 1];
+		}
+		if (ok) cout << "YES" << endl;
+		else cout << "NO" << endl;
 }
 
 
