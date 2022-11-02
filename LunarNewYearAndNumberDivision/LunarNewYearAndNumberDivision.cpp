@@ -32,7 +32,7 @@ void solve(){
 	while(i<j){
 		ans+=((a[i]+a[j])*(a[i]+a[j]));
 		++i;
-		--j;
+		--j; 
 	}
 	write(ans,"\n");
 }
