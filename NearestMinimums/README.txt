@@ -1,0 +1,1 @@
+You are given an array of n integer numbers a0, a1, ..., an - 1. Find the distance between two closest (nearest) minimums in it. It is guaranteed that in the array a minimum occurs at least two times.
