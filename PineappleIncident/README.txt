@@ -1,3 +1,0 @@
-Ted has a pineapple. This pineapple is able to bark like a bulldog! At time t (in seconds) it barks for the first time. Then every s seconds after it, it barks twice with 1 second interval. Thus it barks at times t, t + s, t + s + 1, t + 2s, t + 2s + 1, etc.
-
-Barney woke up in the morning and wants to eat the pineapple, but he can't eat it when it's barking. Barney plans to eat it at time x (in seconds), so he asked you to tell him if it's gonna bark at that time.
