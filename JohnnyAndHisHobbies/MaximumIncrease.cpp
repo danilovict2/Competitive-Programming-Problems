@@ -22,33 +22,22 @@ void write(T... args)
 const vector<pair<int, int>> nb = {{-1, -1}, {-1, 1}, {1, 1}, {1, -1}, {-1, 0}, {1, 0}, {0, 1}, {0, -1}};
 const vector<pair<int, int>> nc = {{-1, 0}, {1, 0}, {0, 1}, {0, -1}};
 bool sortbysec(const pair<int, int> &a, const pair<int, int> &b) { return (a.second < b.second); }
-const int maxN = 1025;
+const int maxN = 1e5;
 
 int n, a[maxN];
-bool is[maxN]={false};
-
-bool check(int k){
-	for(int i=0;i<n;++i)
-		if(!is[a[i]^k])
-			return false;
-	
-	return true;
-}
 
 void solve(){
-	read(n);
-	memset(is,false,sizeof(is));
-	for(int i=0;i<n;++i){
-		read(a[i]);
-		is[a[i]]=true;
-	}
-	for(int k=1;k<1024;++k){
-		if(check(k)){
-			write(k,"\n");
-			return;
+	int ans = 0;
+	int cur = 1;
+	for(int i=1;i<n;++i){
+		if(a[i] > a[i-1])++cur;
+		else{ 
+			ans = max(ans,cur);
+			cur = 1;
 		}
 	}
-	write("-1\n");
+	ans = max(ans,cur);
+	write(ans,"\n");
 }
 
 int main(void){
@@ -58,8 +47,8 @@ int main(void){
 		freopen("input.txt", "r", stdin);
 		freopen("output.txt", "w", stdout);
 	#endif
-	int t;
-	read(t);
-	while(t--)solve();
+	read(n);
+	FOR(i,n)read(a[i]);
+	solve();
 	return 0;
 }
