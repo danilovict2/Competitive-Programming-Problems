@@ -1,20 +1,12 @@
-Lunar New Year is approaching, and Bob decides to take a wander in a nearby park.
+Fox Ciel is playing a mobile puzzle game called "Two Dots". The basic levels are played on a board of size n × m cells, like this:
 
-The park can be represented as a connected graph with n
-nodes and m bidirectional edges. Initially Bob is at the node 1 and he records 1 on his notebook. He can wander from one node to another through those bidirectional edges. Whenever he visits a node not recorded on his notebook, he records it. After he visits all nodes at least once, he stops wandering, thus finally a permutation of nodes a1,a2,…,an
+Each cell contains a dot that has some color. We will use different uppercase Latin characters to express different colors.
 
-is recorded.
+The key of this game is to find a cycle that contain dots of same color. Consider 4 blue dots on the picture forming a circle as an example. Formally, we call a sequence of dots d1, d2, ..., dk a cycle if and only if it meets the following condition:
 
-Wandering is a boring thing, but solving problems is fascinating. Bob wants to know the lexicographically smallest sequence of nodes he can record while wandering. Bob thinks this problem is trivial, and he wants you to solve it.
+    These k dots are different: if i ≠ j then di is different from dj.
+    k is at least 4.
+    All dots belong to the same color.
+    For all 1 ≤ i ≤ k - 1: di and di + 1 are adjacent. Also, dk and d1 should also be adjacent. Cells x and y are called adjacent if they share an edge. 
 
-A sequence x
-is lexicographically smaller than a sequence y
-
-if and only if one of the following holds:
-
-    x
-
-is a prefix of y, but x≠y
-(this is impossible in this problem as all considered sequences have the same length);
-in the first position where x
-and y differ, the sequence x has a smaller element than the corresponding element in y.
+Determine if there exists a cycle on the field.
