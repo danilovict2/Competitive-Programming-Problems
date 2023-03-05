@@ -1,0 +1,1 @@
+You are given an expression of the form a+b, where a and b are integers from 0 to 9. You have to evaluate it and print the result.
