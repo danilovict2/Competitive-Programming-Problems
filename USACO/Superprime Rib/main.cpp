@@ -34,36 +34,10 @@ const int maxN = 1001;
 vi ans;
 int N;
 
-bool isPrime(ll n){
-    if((n%2 == 0 && n > 2) || n==1)return false;
-    for(int i=3; i<=sqrt(n); i+=2){
-        if(n%i == 0)return false;
-    }
-    return true;
-}
-
-void calc(int n,int num){
-    if(n == 0){
-        if(isPrime(num))
-            write(num,"\n");
-        return;
-    }
-    int i = 1;
-	if (n == N) {
-		calc(n-1,num+2);
-		i = 3;
-	}
-	if (num == 0 || isPrime(num)) {
-		num *= 10;
-		for (i;i<=9;i+=2){
-			calc(n - 1, num + i);
-		}
-	}
-}
 
 void solve(){
     read(N);
-    calc(N,0);
+   
 }
  
 
