@@ -1,0 +1,3 @@
+Bessie and her cow friends are playing as their favorite cow superheroes. Of course, everyone knows that any self-respecting superhero needs a signal to call them to action. Bessie has drawn a special signal on a sheet of M×N paper (1≤M≤10,1≤N≤10), but this is too small, much too small! Bessie wants to amplify the signal so it is exactly K times bigger (1≤K≤10) in each direction.
+
+The signal will consist only of the '.' and 'X' characters. 
