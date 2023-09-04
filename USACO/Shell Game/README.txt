@@ -1,13 +1,10 @@
-Convinced that happy cows generate more milk, Farmer John has installed a giant disco ball in his barn and plans to teach his cows to dance!
+Farming is competitive business -- particularly milk production. Farmer John figures that if he doesn't innovate in his milk production methods, his dairy business could get creamed!
 
-Looking up popular cow dances, Farmer John decides to teach his cows the "Bovine Shuffle". The Bovine Shuffle consists of his N
-cows (1≤N≤100) lining up in a row in some order, then performing three "shuffles" in a row, after which they will be lined up in some possibly different order. To make it easier for his cows to locate themselves, Farmer John marks the locations for his line of cows with positions 1…N, so the first cow in the lineup will be in position 1, the next in position 2, and so on, up to position N
+Fortunately, Farmer John has a good idea. His three prize dairy cows Bessie, Elsie, and Mildred each produce milk with a slightly different taste, and he plans to mix these together to get the perfect blend of flavors.
 
-.
+To mix the three different milks, he takes three buckets containing milk from the three cows. The buckets may have different sizes, and may not be completely full. He then pours bucket 1 into bucket 2, then bucket 2 into bucket 3, then bucket 3 into bucket 1, then bucket 1 into bucket 2, and so on in a cyclic fashion, for a total of 100 pour operations (so the 100th pour would be from bucket 1 into bucket 2). When Farmer John pours from bucket a
+into bucket b, he pours as much milk as possible until either bucket a becomes empty or bucket b
 
-A shuffle is described with N numbers, a1…aN
-, where the cow in position i moves to position ai during the shuffle (and so, each ai is in the range 1…N). Every cow moves to its new location during the shuffle. Fortunately, all the ai
+becomes full.
 
-'s are distinct, so no two cows try to move to the same position during a shuffle.
-
-Farmer John's cows are each assigned distinct 7-digit integer ID numbers. If you are given the ordering of the cows after three shuffles, please determine their initial order. 
+Please tell Farmer John how much milk will be in each bucket after he finishes all 100 pours. 

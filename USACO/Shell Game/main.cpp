@@ -1,7 +1,7 @@
 /*
 ID: danilos4
 LANG: C++
-TASK: shell
+TASK: mixmilk
 */
 #include <bits/stdc++.h>
 using namespace std;
@@ -17,8 +17,8 @@ using namespace std;
 #define sz(a) a.size()
 #define forn(i, n) for (int i = 0; i < n; ++i)
 #define INF 1e18
-ofstream fout ("shell.out");
-ifstream fin ("shell.in");
+ofstream fout ("mixmilk.out");
+ifstream fin ("mixmilk.in");
 template <typename... T>
 void read(T &...args){
 	((fin >> args), ...);
@@ -32,29 +32,23 @@ const vector<pair<int, int>> dirs2 = {{-1, 0}, {0, 1}, {1, 0}, {0, -1}};
 bool sortbysec(const pair<int, int> &a, const pair<int, int> &b) { return (a.second < b.second); }
 const int maxN = 101;
 
-int n;
-int a[maxN], b[maxN], g[maxN];
 
-int playGame(int initial){
-	int score = 0;
-	forn(i,n){
-		if(a[i] == initial)initial = b[i];
-		else if(b[i] == initial)initial = a[i];
-		if(g[i] == initial)score++;
-	}
-	return score;
-}
 
 void solve(){
-	read(n);
-	int ans = 0;
-	forn(i,n){
-		read(a[i], b[i], g[i]);
+	int c[3], m[3];
+	forn(i,3)read(c[i], m[i]);
+	int i=0;
+	while(i<100){
+		int b1 = i%3;
+		int b2 = (i+1)%3;
+		int amt = min(m[b1], c[b2] - m[b2]);
+		
+		m[b1] -= amt;
+		m[b2] += amt;
+		i++;
 	}
-	for(int initial=1;initial<=3;++initial){
-		ans = max(ans, playGame(initial));
-	}
-	write(ans,'\n');
+
+	write(m[0],'\n',m[1],'\n',m[2],'\n');
 }
 
 
