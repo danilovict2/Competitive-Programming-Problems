@@ -1,10 +1,10 @@
-Farming is competitive business -- particularly milk production. Farmer John figures that if he doesn't innovate in his milk production methods, his dairy business could get creamed!
+To pass the time, Bessie the cow and her friend Elsie like to play a version of a game they saw at the county fair.
 
-Fortunately, Farmer John has a good idea. His three prize dairy cows Bessie, Elsie, and Mildred each produce milk with a slightly different taste, and he plans to mix these together to get the perfect blend of flavors.
+To start, Bessie puts three inverted shells on a table and places a small round pebble under one of them (at least she hopes it is a pebble -- she found it on the ground in one of the pastures). Bessie then proceeds to swap pairs of shells, while Elsie tries to guess the location of the pebble.
 
-To mix the three different milks, he takes three buckets containing milk from the three cows. The buckets may have different sizes, and may not be completely full. He then pours bucket 1 into bucket 2, then bucket 2 into bucket 3, then bucket 3 into bucket 1, then bucket 1 into bucket 2, and so on in a cyclic fashion, for a total of 100 pour operations (so the 100th pour would be from bucket 1 into bucket 2). When Farmer John pours from bucket a
-into bucket b, he pours as much milk as possible until either bucket a becomes empty or bucket b
+The standard version of the game the cows saw being played at the county fair allowed the player to see the initial location of the pebble, and then required guessing its final location after all the swaps were complete.
 
-becomes full.
+However, the cows like to play a version where Elsie does not know the initial location of the pebble, and where she can guess the pebble location after every swap. Bessie, knowing the right answer, gives Elsie a score at the end equal to the number of correct guesses she made.
 
-Please tell Farmer John how much milk will be in each bucket after he finishes all 100 pours. 
+Given the swaps and the guesses, but not the initial pebble location, please determine the highest possible score Elsie could have earned.
+
