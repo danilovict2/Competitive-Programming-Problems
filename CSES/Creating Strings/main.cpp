@@ -30,12 +30,11 @@ void solve(){
 	string s;
 	read(s);
 	sort(s.begin(), s.end());
-	int n = s.size();
+	
 	vector<string> ans;
-	do{
+	do {
 		ans.pb(s);
-	}while(next_permutation(s.begin(), s.end()));
-
+	} while(next_permutation(s.begin(), s.end()));
 	write(ans.size(),'\n');
 	for(auto x:ans)write(x,'\n');
 }
