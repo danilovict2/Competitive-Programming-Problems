@@ -23,20 +23,19 @@ void write(T... args){
 const vector<pair<int, int>> dirs1 = {{-1, -1}, {-1, 1}, {1, 1}, {1, -1}, {-1, 0}, {1, 0}, {0, 1}, {0, -1}};
 const vector<pair<int, int>> dirs2 = {{-1, 0}, {1, 0}, {0, 1}, {0, -1}};
 bool sortbysec(const pair<int, int> &a, const pair<int, int> &b) { return (a.second < b.second); }
-const int maxN = 2 * 1e5 + 10;
-
+const int maxN = 1001;
 
 
 void solve(){
+	set<int> s;
 	int n;
 	read(n);
-	set<int> s;
 	int x;
-	forn(i,n){
+	forn(i,n) {
 		read(x);
 		s.insert(x);
 	}
-	write(s.size(),'\n');
+	write(s.size(), '\n');
 }
 
 int main(void){
