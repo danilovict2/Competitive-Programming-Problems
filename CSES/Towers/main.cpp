@@ -23,24 +23,21 @@ void write(T... args){
 const vector<pair<int, int>> dirs1 = {{-1, -1}, {-1, 1}, {1, 1}, {1, -1}, {-1, 0}, {1, 0}, {0, 1}, {0, -1}};
 const vector<pair<int, int>> dirs2 = {{-1, 0}, {1, 0}, {0, 1}, {0, -1}};
 bool sortbysec(const pair<int, int> &a, const pair<int, int> &b) { return (a.second < b.second); }
-const int maxN = 2 * 1e5 + 10;
+const int maxN = 1001;
 
 
 void solve(){
 	int n;
 	read(n);
-	int k[n];
-	forn(i,n)read(k[i]);
-	multiset<int> ans;
-	forn(i,n){
-		auto it = ans.upper_bound(k[i]);
-		if(it == ans.end())ans.insert(k[i]);
-		else{
-			ans.erase(it);
-			ans.insert(k[i]);
-		}
+	int a[n];
+	forn(i,n)read(a[i]);
+	multiset<int> s;
+	forn(i,n) {
+		auto it = s.upper_bound(a[i]);
+		if (it != s.end()) s.erase(it);
+		s.insert(a[i]);
 	}
-	write(ans.size(),'\n');
+	cout<<s.size()<<"\n";
 }
 
 int main(void){
