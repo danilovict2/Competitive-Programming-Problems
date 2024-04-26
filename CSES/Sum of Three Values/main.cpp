@@ -1,6 +1,6 @@
 #include <bits/stdc++.h>
 using namespace std;
-
+ 
 #define ll long long
 #define ull unsigned long long
 #define pb push_back
@@ -23,33 +23,33 @@ void write(T... args){
 const vector<pair<int, int>> dirs1 = {{-1, -1}, {-1, 1}, {1, 1}, {1, -1}, {-1, 0}, {1, 0}, {0, 1}, {0, -1}};
 const vector<pair<int, int>> dirs2 = {{-1, 0}, {1, 0}, {0, 1}, {0, -1}};
 bool sortbysec(const pair<int, int> &a, const pair<int, int> &b) { return (a.second < b.second); }
-const int maxN = 2 * 1e5 + 10;
-
-int n,x;
-
-
+const int maxN = 2 * 1e5;
+ 
 void solve(){
+	ll n,x;
 	read(n,x);
-	vii a;
-	int c;
-	forn(i,n){
-		read(c);
-		a.pb({c,i+1});
+	vector<pair<ll, int>> v;
+	forn(i,n) {
+		ll a;read(a);
+		v.pb({a, i+1});
 	}
-	sort(a.begin(),a.end());
-	forn(i,n){
-		int j = 0, k = n-1;
-		while(j<k){
-			if(j!=i && k!= i && a[i].first + a[j].first + a[k].first == x){
-				write(a[i].second," ",a[j].second," ",a[k].second,'\n');
+	sort(v.begin(),v.end());
+
+	for(int i=0;i<n;++i) {
+		int l = i+1, r = n-1;
+		while (l < r) {
+			if (v[i].first + v[l].first + v[r].first == x) {
+				write(v[i].second,' ',v[l].second,' ',v[r].second,'\n');
 				return;
-			}else if(a[i].first + a[j].first + a[k].first > x)k--;
-			else j++;
+			}
+			else if (v[i].first + v[l].first + v[r].first > x)r--;
+			else l++;
 		}
 	}
+
 	write("IMPOSSIBLE\n");
 }
-
+ 
 int main(void){
 	ios::sync_with_stdio(0);
 	cin.tie(0);
