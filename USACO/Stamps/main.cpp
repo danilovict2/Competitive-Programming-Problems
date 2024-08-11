@@ -17,48 +17,48 @@ using namespace std;
 #define sz(a) a.size()
 #define forn(i, n) for (int i = 0; i < n; ++i)
 #define INF 1e18
-ofstream fout ("stamps.out");
-ifstream fin ("stamps.in");
+ofstream fout("stamps.out");
+ifstream fin("stamps.in");
 template <typename... T>
-void read(T &...args){
+void read(T &...args)
+{
 	((fin >> args), ...);
 }
 template <typename... T>
-void write(T... args){
+void write(T... args)
+{
 	((fout << args), ...);
 }
 const vector<pair<int, int>> dirs1 = {{-1, -1}, {-1, 1}, {1, 1}, {1, -1}, {-1, 0}, {1, 0}, {0, 1}, {0, -1}};
 const vector<pair<int, int>> dirs2 = {{-1, 0}, {0, 1}, {1, 0}, {0, -1}};
 bool sortbysec(const pair<int, int> &a, const pair<int, int> &b) { return (a.second < b.second); }
-const int maxN = 100001;
-
-int k,n;
-int dp[10000 * 203 + 3];
+const int maxN = 101;
 
 void solve(){
-	read(k,n);
-	int mx = -1;
-	vector<int> a(n);
-	forn(i,n){
-		read(a[i]);
-		mx = max(mx, a[i]);
+	ll N, K;
+	read(K, N);
+	vector<ll> coins;
+	forn(i, N) {
+		ll c;read(c);
+		coins.pb(c);
 	}
-	for(int i=0;i<=k*mx+3;++i)dp[i] = (int)INF;
+
+	int dp[10000 * (200 + 3) + 3];
 	dp[0] = 0;
-	for(auto c:a){
-		for(int i=0;i<=mx*k;++i){
-			if(dp[i] < k){
-				dp[i+c] = min(dp[i+c], dp[i]+1);
-			}
+
+	for (ll i=1;;++i) {
+		dp[i] = INF;
+		for (auto c:coins) {
+			if (i - c >= 0)
+				dp[i] = min(dp[i], dp[i-c] + 1);
+		}
+
+		if (dp[i] > K) {
+			write(i-1,'\n');
+			return;
 		}
 	}
-	int ans = 0;
-	while(dp[ans+1] <= k){
-		++ans;
-	}
-	write(ans,"\n");
 }
-
 
 int main(void){
 	ios::sync_with_stdio(0);
