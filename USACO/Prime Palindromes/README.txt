@@ -1,1 +1,0 @@
-The number 151 is a prime palindrome because it is both a prime number and a palindrome (it is the same number when read forward as backward). Write a program that finds all prime palindromes in the range of two supplied numbers a and b (5 <= a < b <= 100,000,000); both a and b are considered to be within the range . 

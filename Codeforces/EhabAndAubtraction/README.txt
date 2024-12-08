@@ -1,1 +1,0 @@
-You're given an array a. You should repeat the following operation k times: find the minimum non-zero element in the array, print it, and then subtract it from all the non-zero elements of the array. If all the elements are 0s, just print 0.

@@ -1,6 +1,0 @@
-We shall say that an -digit number is pandigital if it makes use of all the digits to exactly once. For example, is a
-
--digit pandigital and is also prime.
-
-What is the largest
--digit pandigital prime that exists?

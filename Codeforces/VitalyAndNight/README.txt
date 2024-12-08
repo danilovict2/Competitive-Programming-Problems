@@ -1,5 +1,0 @@
-One day Vitaly was going home late at night and wondering: how many people aren't sleeping at that moment? To estimate, Vitaly decided to look which windows are lit in the house he was passing by at that moment.
-
-Vitaly sees a building of n floors and 2·m windows on each floor. On each floor there are m flats numbered from 1 to m, and two consecutive windows correspond to each flat. If we number the windows from 1 to 2·m from left to right, then the j-th flat of the i-th floor has windows 2·j - 1 and 2·j in the corresponding row of windows (as usual, floors are enumerated from the bottom). Vitaly thinks that people in the flat aren't sleeping at that moment if at least one of the windows corresponding to this flat has lights on.
-
-Given the information about the windows of the given house, your task is to calculate the number of flats where, according to Vitaly, people aren't sleeping.

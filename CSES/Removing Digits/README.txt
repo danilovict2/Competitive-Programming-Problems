@@ -1,1 +1,0 @@
-Given an array of n integers, your task is to find for each array position the nearest position to its left having a smaller value.

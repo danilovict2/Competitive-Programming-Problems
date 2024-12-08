@@ -1,4 +1,0 @@
-In preparation for the upcoming hoofball tournament, Farmer John is drilling his N cows (conveniently numbered 1…N, where 1≤N≤100) in passing the ball. The cows are all standing along a very long line on one side of the barn, with cow i standing xi units away from the barn (1≤xi≤1000). Each cow is standing at a distinct location.
-
-At the beginning of the drill, Farmer John will pass several balls to different cows. When cow i
-receives a ball, either from Farmer John or from another cow, she will pass the ball to the cow nearest her (and if multiple cows are the same distance from her, she will pass the ball to the cow farthest to the left among these). So that all cows get at least a little bit of practice passing, Farmer John wants to make sure that every cow will hold a ball at least once. Help him figure out the minimum number of balls he needs to distribute initially to ensure this can happen, assuming he hands the balls to an appropriate initial set of cows. 
