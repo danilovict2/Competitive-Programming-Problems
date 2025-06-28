@@ -1,0 +1,5 @@
+The cows have developed a new interest in scanning the universe outside their farm with radiotelescopes. Recently, they noticed a very curious microwave pulsing emission sent right from the centre of the galaxy. They wish to know if the emission is transmitted by some extraterrestrial form of intelligent life or if it is nothing but the usual heartbeat of the stars.
+
+Help the cows to find the Truth by providing a tool to analyze bit patterns in the files they record. They are seeking bit patterns of length A through B inclusive (1 <= A <= B <= 12) that repeat themselves most often in each day's data file. They are looking for the patterns that repeat themselves most often. An input limit tells how many of the most frequent patterns to output.
+
+Pattern occurrences may overlap, and only patterns that occur at least once are taken into account. 

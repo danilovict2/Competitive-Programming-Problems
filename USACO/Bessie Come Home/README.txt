@@ -1,0 +1,5 @@
+It's dinner time, and the cows are out in their separate pastures. Farmer John rings the bell so they will start walking to the barn. Your job is to figure out which one cow gets to the barn first (the supplied test data will always have exactly one fastest cow).
+
+Between milkings, each cow is located in her own pasture, though some pastures have no cows in them. Each pasture is connected by a path to one or more other pastures (potentially including itself). Sometimes, two (potentially self-same) pastures are connected by more than one path. One or more of the pastures has a path to the barn. Thus, all cows have a path to the barn and they always know the shortest path. Of course, cows can go either direction on a path and they all walk at the same speed.
+
+The pastures are labeled `a'..`z' and `A'..`Y'. One cow is in each pasture labeled with a capital letter. No cow is in a pasture labeled with a lower case letter. The barn's label is `Z'; no cows are in the barn, though. 

@@ -25,30 +25,62 @@ void write(T... args)
 const vector<pair<int, int>> dirs1 = {{-1, -1}, {-1, 1}, {1, 1}, {1, -1}, {-1, 0}, {1, 0}, {0, 1}, {0, -1}};
 const vector<pair<int, int>> dirs2 = {{-1, 0}, {1, 0}, {0, 1}, {0, -1}};
 bool sortbysec(const pair<int, int> &a, const pair<int, int> &b) { return (a.second < b.second); }
-const int maxN = 1e5;
+const int maxN = 50;
 
-ll n;
-ll h[2][maxN], dp[2][maxN];
+void solve(){
+    int n, m;
+    read(n, m);
 
-ll dfs(ll r, ll c) {
-    if (c == n)return 0;
-    if (dp[r][c] != -1)return dp[r][c];
+    int cards[n][m];
+    forn(i, n){
+        forn(j, m) read(cards[i][j]);
+        sort(cards[i], cards[i] + m);
+    }
 
-    dp[r][c] = max(dfs(r, c+1), h[r][c] + dfs((r == 0) ? 1 : 0, c+1));
-    return dp[r][c];
+    int perm[100];
+    forn(i, n) perm[i] = i;
+
+    bool ok = false;
+    do {
+        int tmp[100][100];
+        forn(i, n)
+        forn(j, m)
+        tmp[i][j] = cards[i][j];
+            
+        int top = -1;
+        bool valid = true;
+
+        for (int round = 0; round < m && valid; ++round) {
+            for (int i = 0; i < n && valid; ++i) {
+                int cow = perm[i];
+                bool played = false;
+                for (int j = 0; j < m; ++j) {
+                    if (tmp[cow][j] > top) {
+                        top = tmp[cow][j];
+                        tmp[cow][j] = -1;
+                        played = true;
+                        break;
+                    }
+                }
+
+                if (!played)
+                    valid = false;
+            }
+        }
+        if (valid) {
+            forn(i, n)write(perm[i]+1, ' ');
+            write('\n');
+            ok = true;
+            break;
+        }
+    } while (next_permutation(perm, perm + n));
+
+    if (!ok) {
+        write(-1, '\n');
+    }
 }
 
-void solve() {
-    read(n);
-    forn(i, 2)
-    forn(j, n)
-    read(h[i][j]);
-    memset(dp, -1, sizeof(dp));
-    ll ans = max(dfs(0, 0), dfs(1, 0));
-    write(ans, '\n');
-}
-
-int main(void){
+int main(void) {
     ios::sync_with_stdio(0);
     cin.tie(0);
     cout.tie(0);
@@ -56,6 +88,9 @@ int main(void){
         freopen("input.txt", "r", stdin);
         freopen("output.txt", "w", stdout);
     #endif
-    solve();
+    int t;
+    read(t);
+    while (t--)
+        solve();
     return 0;
 }

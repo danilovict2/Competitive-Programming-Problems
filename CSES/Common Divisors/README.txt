@@ -1,0 +1,1 @@
+You are given an array of n positive integers. Your task is to find two integers such that their greatest common divisor is as large as possible.
