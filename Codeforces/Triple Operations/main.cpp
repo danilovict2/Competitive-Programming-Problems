@@ -25,27 +25,14 @@ void write(T... args)
 const vector<pair<int, int>> dirs1 = {{-1, -1}, {-1, 1}, {1, 1}, {1, -1}, {-1, 0}, {1, 0}, {0, 1}, {0, -1}};
 const vector<pair<int, int>> dirs2 = {{-1, 0}, {1, 0}, {0, 1}, {0, -1}};
 bool sortbysec(const pair<int, int> &a, const pair<int, int> &b) { return (a.second < b.second); }
-const int maxN = 1e5;
+const int maxN = 2*1e5;
 
-ll n;
-ll h[2][maxN], dp[2][maxN];
-
-ll dfs(ll r, ll c) {
-    if (c == n)return 0;
-    if (dp[r][c] != -1)return dp[r][c];
-
-    dp[r][c] = max(dfs(r, c+1), h[r][c] + dfs((r == 0) ? 1 : 0, c+1));
-    return dp[r][c];
-}
+int cnt[maxN+1], pfx[maxN+1];
 
 void solve() {
-    read(n);
-    forn(i, 2)
-    forn(j, n)
-    read(h[i][j]);
-    memset(dp, -1, sizeof(dp));
-    ll ans = max(dfs(0, 0), dfs(1, 0));
-    write(ans, '\n');
+    int l, r;
+    read(l, r);
+    write(cnt[l] + pfx[r] - pfx[l-1], '\n');
 }
 
 int main(void){
@@ -56,6 +43,18 @@ int main(void){
         freopen("input.txt", "r", stdin);
         freopen("output.txt", "w", stdout);
     #endif
-    solve();
+    for(int i=1;i<=maxN;++i) {
+        int num = i;
+        while(num > 0) {
+            cnt[i]++;
+            num /= 3;
+        }
+
+        pfx[i] = pfx[i-1] + cnt[i];
+    }
+
+    int t;
+    read(t);
+    while(t--)solve();
     return 0;
 }

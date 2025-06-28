@@ -25,27 +25,27 @@ void write(T... args)
 const vector<pair<int, int>> dirs1 = {{-1, -1}, {-1, 1}, {1, 1}, {1, -1}, {-1, 0}, {1, 0}, {0, 1}, {0, -1}};
 const vector<pair<int, int>> dirs2 = {{-1, 0}, {1, 0}, {0, 1}, {0, -1}};
 bool sortbysec(const pair<int, int> &a, const pair<int, int> &b) { return (a.second < b.second); }
-const int maxN = 1e5;
-
-ll n;
-ll h[2][maxN], dp[2][maxN];
-
-ll dfs(ll r, ll c) {
-    if (c == n)return 0;
-    if (dp[r][c] != -1)return dp[r][c];
-
-    dp[r][c] = max(dfs(r, c+1), h[r][c] + dfs((r == 0) ? 1 : 0, c+1));
-    return dp[r][c];
-}
+const int maxN = 2*1e5;
 
 void solve() {
-    read(n);
-    forn(i, 2)
-    forn(j, n)
-    read(h[i][j]);
-    memset(dp, -1, sizeof(dp));
-    ll ans = max(dfs(0, 0), dfs(1, 0));
-    write(ans, '\n');
+    string s;
+    read(s);
+    vector<pair<int,int>> ab, ba;
+    for(int i=0;i<s.size()-1;++i) {
+        if (s[i] == 'A' && s[i+1] == 'B')ab.pb({i, i+1});
+        if (s[i] == 'B' && s[i+1] == 'A')ba.pb({i, i+1});
+    }
+    
+    for(auto x:ab) {
+        for(auto y:ba) {
+            if (x.first != y.first && x.first != y.second && x.second != y.first && x.second != y.second) {
+                write("YES\n");
+                return;
+            }
+        }
+    }
+
+    write("NO\n");
 }
 
 int main(void){

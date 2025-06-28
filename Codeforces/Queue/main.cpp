@@ -25,26 +25,22 @@ void write(T... args)
 const vector<pair<int, int>> dirs1 = {{-1, -1}, {-1, 1}, {1, 1}, {1, -1}, {-1, 0}, {1, 0}, {0, 1}, {0, -1}};
 const vector<pair<int, int>> dirs2 = {{-1, 0}, {1, 0}, {0, 1}, {0, -1}};
 bool sortbysec(const pair<int, int> &a, const pair<int, int> &b) { return (a.second < b.second); }
-const int maxN = 1e5;
-
-ll n;
-ll h[2][maxN], dp[2][maxN];
-
-ll dfs(ll r, ll c) {
-    if (c == n)return 0;
-    if (dp[r][c] != -1)return dp[r][c];
-
-    dp[r][c] = max(dfs(r, c+1), h[r][c] + dfs((r == 0) ? 1 : 0, c+1));
-    return dp[r][c];
-}
+const int maxN = 1e5 + 1;
 
 void solve() {
+    int n;
     read(n);
-    forn(i, 2)
-    forn(j, n)
-    read(h[i][j]);
-    memset(dp, -1, sizeof(dp));
-    ll ans = max(dfs(0, 0), dfs(1, 0));
+    int a[n];
+    forn(i, n)read(a[i]);
+    sort(a, a+n);
+    int t = 0, ans = 0;
+    forn(i, n) {
+        if (a[i] >= t) {
+            ans++;
+            t += a[i];
+        }
+    }
+
     write(ans, '\n');
 }
 
