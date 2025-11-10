@@ -1,0 +1,14 @@
+class Solution:
+    def characterReplacement(self, s: str, k: int) -> int:
+        cnt = defaultdict(int)
+        l, best, maxf = 0, 0, 0
+        for r in range(len(s)):
+            cnt[s[r]] += 1
+            maxf = max(maxf, cnt[s[r]])
+
+            while (r - l + 1) - maxf > k:
+                cnt[s[l]] -= 1
+                l += 1
+            
+            best = max(best, r - l + 1)
+        return best
