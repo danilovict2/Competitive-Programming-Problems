@@ -1,29 +1,19 @@
 class Solution:
-    def maxAreaOfIsland(self, grid: List[List[int]]) -> int:
+    def islandsAndTreasure(self, grid: List[List[int]]) -> None:
         directions = [[1, 0], [-1, 0], [0, 1], [0, -1]]
         R, C = len(grid), len(grid[0])
-        ans = 0
 
-        def bfs(i, j):
-            area = 0
-            q = deque([[i, j]])
-            grid[i][j] = 0
+        def dfs(i, j, dist):
+            if i < 0 or j < 0 or i >= R or j >= C or grid[i][j] < dist:
+                return
+            
+            grid[i][j] = dist
+            for d in directions:
+                dfs(i + d[0], j + d[1], dist + 1)
 
-            while q:
-                v = q.popleft()
-                area += 1
 
-                for d in directions:
-                    x, y = v[0] + d[0], v[1] + d[1]
-                    if x >= 0 and y >= 0 and x < R and y < C and grid[x][y] == 1:
-                        q.append([x, y])
-                        grid[x][y] = 0
-                        
-            return area
-        
         for i in range(R):
             for j in range(C):
-                if grid[i][j] != 0:
-                    ans = max(ans, bfs(i, j))
-        
-        return ans
+                if grid[i][j] == 0:
+                    dfs(i, j, 0)
+

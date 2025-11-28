@@ -1,27 +1,49 @@
-Max Area of Island
+Islands and Treasure
 
-You are given a matrix grid where grid[i] is either a 0 (representing water) or 1 (representing land).
+You are given a m×nm×n 2D grid initialized with these three possible values:
 
-An island is defined as a group of 1's connected horizontally or vertically. You may assume all four edges of the grid are surrounded by water.
+    -1 - A water cell that can not be traversed.
+    0 - A treasure chest.
+    INF - A land cell that can be traversed. We use the integer 2^31 - 1 = 2147483647 to represent INF.
 
-The area of an island is defined as the number of cells within the island.
+Fill each land cell with the distance to its nearest treasure chest. If a land cell cannot reach a treasure chest then the value should remain INF.
 
-Return the maximum area of an island in grid. If no island exists, return 0.
+Assume the grid can only be traversed up, down, left, or right.
+
+Modify the grid in-place.
 
 Example 1:
 
-Input: grid = [
-  [0,1,1,0,1],
-  [1,0,1,0,1],
-  [0,1,1,0,1],
-  [0,1,0,0,1]
+Input: [
+  [2147483647,-1,0,2147483647],
+  [2147483647,2147483647,2147483647,-1],
+  [2147483647,-1,2147483647,-1],
+  [0,-1,2147483647,2147483647]
 ]
 
-Output: 6
+Output: [
+  [3,-1,0,1],
+  [2,2,1,-1],
+  [1,-1,2,-1],
+  [0,-1,3,4]
+]
 
-Explanation: 1's cannot be connected diagonally, so the maximum area of the island is 6.
+Example 2:
+
+Input: [
+  [0,-1],
+  [2147483647,2147483647]
+]
+
+Output: [
+  [0,-1],
+  [1,2]
+]
 
 Constraints:
 
-    1 <= grid.length, grid[i].length <= 50
+    m == grid.length
+    n == grid[i].length
+    1 <= m, n <= 100
+    grid[i][j] is one of {-1, 0, 2147483647}
 
