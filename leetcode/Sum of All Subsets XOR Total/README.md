@@ -1,6 +1,4 @@
 Sum of All Subsets XOR Total
-Solved
-Easy Company Tags
 
 The XOR total of an array is defined as the bitwise XOR of all its elements, or 0 if the array is empty.
 
