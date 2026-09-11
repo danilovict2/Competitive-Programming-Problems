@@ -1,13 +1,64 @@
-The highway adjacent to Farmer John's farm has recently seen a dramatic increase in traffic, or at least so it seems to Farmer John. To be sure, he wants to measure the traffic flow on the highway with a set of sensors, each capable of measuring the rate of flow of traffic on a segment of road.
+Farmer John is trying to teach his cows to read by giving them a set of N spelling boards typically used with preschoolers (1≤N≤100). Each board has a word and an image on each side. For example, one side might have the word 'cat' along with a picture of a cat, and the other side might have the word 'dog' along with a picture of a dog. When the boards are lying on the ground, N words are therefore shown. By flipping over some of the boards, a different set of N words can be exposed.
 
-Unfortunately, while walking through the barn one day, Farmer John trips and drops his box of sensors into a large vat of milk, after which they no longer work as well. Instead of producing a single exact reading of traffic flow rate, each sensor now outputs a range of possible values. For example, a sensor might output the range [7,13]
+To help the cows with their spelling, Farmer John wants to fashion a number of wooden blocks, each embossed with a single letter of the alphabet. He wants to make sufficiently many blocks of each letter so that no matter which set of N words is exposed on the upward-facing boards, the cows will be able to spell all of these words using the blocks. For example, if N=3 and the words 'box', 'cat', and 'car' were facing upward, the cows would need at least one 'b' block, one 'o' block, one 'x' block, two 'c' blocks, two 'a' blocks, one 't' block, and one 'r' block.
 
-, indicating that the rate of traffic flow on a segment of road is no less than 7, and no greater than 13.
+Please help the Farmer John determine the minimum number of blocks for each letter of the alphabet that he needs to provide, so that irrespective of which face of each board is showing, the cows can spell all N visible words.
 
-The highway runs for N
-miles next to the farm, and traffic on the highway only flows in one direction, from mile 1 towards mile N. Farmer John wants to install N
+INPUT FORMAT (file blocks.in):
+Line 1 contains the integer N.
 
-sensors -- one for each 1-mile segment of the highway. In some of these segments, there are on-ramps that allow traffic to enter the highway; in each of these cases, Farmer John will install his sensor on the on-ramp to measure (approximately) the amount of incoming traffic. In some segments there are off-ramps that allows traffic to exit the highway; in each of these cases, Farmer John will install his sensor on the off-ramp. Each segment contains at most one ramp. If there is no on-ramp or off-ramp in a segment of highway, Farmer John installs a sensor on the main highway itself.
+The next N lines each contain 2 words separated by a space, giving the two words on opposite sides of a board. Each word is a string of at most 10 lowercase letters.
 
-Given the readings from Farmer John's N
-sensors, please determine the most specific possible ranges that describe the rate of traffic flow initially on the highway prior to mile 1 and for traffic continuing on the highway past mile N. These ranges should be consistent with all N sensor readings. 
+OUTPUT FORMAT (file blocks.out):
+Please output 26 lines. The first output line should contain a number specifying the number of copies of 'a' blocks needed. The next line should specify the number of 'b' blocks needed, and so on.
+
+SAMPLE INPUT:
+
+3
+fox box
+dog cat
+car bus
+
+SAMPLE OUTPUT:
+
+2
+2
+2
+1
+0
+1
+1
+0
+0
+0
+0
+0
+0
+0
+2
+0
+0
+1
+1
+1
+1
+0
+0
+1
+0
+0
+
+In this example, there are N=3 boards, giving 23=8 possibilities for the set of upward-facing words:
+
+fox dog car
+fox dog bus
+fox cat car
+fox cat bus
+box dog car
+box dog bus
+box cat car
+box cat bus
+
+We need enough blocks for each letter of the alphabet so that we can spell all three words, irrespective of which of these eight scenarios occurs.
+
+Problem credits: Viktoriia Schwartz 
