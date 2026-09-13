@@ -1,25 +1,26 @@
-Farmer John has lost his prize cow Bessie, and he needs to find her!
+In order to improve their physical fitness, the cows have taken up gymnastics! Farmer John designates his favorite cow Bessie to coach the N other cows and to assess their progress as they learn various gymnastic skills.
 
-Fortunately, there is only one long path running across the farm, and Farmer John knows that Bessie has to be at some location on this path. If we think of the path as a number line, then Farmer John is currently at position x and Bessie is currently at position y (unknown to Farmer John). If Farmer John only knew where Bessie was located, he could walk directly to her, traveling a distance of |x−y|. Unfortunately, it is dark outside and Farmer John can't see anything. The only way he can find Bessie is to walk back and forth until he eventually reaches her position.
+In each of K practice sessions (1≤K≤10), Bessie ranks the N cows according to their performance (1≤N≤20). Afterward, she is curious about the consistency in these rankings. A pair of two distinct cows is consistent if one cow did better than the other one in every practice session.
 
-Trying to figure out the best strategy for walking back and forth in his search, Farmer John consults the computer science research literature and is somewhat amused to find that this exact problem has not only been studied by computer scientists in the past, but that it is actually called the "Lost Cow Problem" (this is actually true!).
+Help Bessie compute the total number of consistent pairs.
 
-The recommended solution for Farmer John to find Bessie is to move to position x+1, then reverse direction and move to position x−2, then to position x+4, and so on, in a "zig zag" pattern, each step moving twice as far from his initial starting position as before. As he has read during his study of algorithms for solving the lost cow problem, this approach guarantees that he will at worst travel 9 times the direct distance |x−y| between himself and Bessie before he finds her (this is also true, and the factor of 9 is actually the smallest such worst case guarantee any strategy can achieve).
+INPUT FORMAT (file gymnastics.in):
+The first line of the input file contains two positive integers K and N. The next K lines will each contain the integers 1…N in some order, indicating the rankings of the cows (cows are identified by the numbers 1…N). If A appears before B in one of these lines, that means cow A did better than cow B.
 
-Farmer John is curious to verify this result. Given x and y, please compute the total distance he will travel according to the zig-zag search strategy above until he finds Bessie.
-
-INPUT FORMAT (file lostcow.in):
-The single line of input contains two distinct space-separated integers x and y. Both are in the range 0…1,000.
-
-OUTPUT FORMAT (file lostcow.out):
-Print one line of output, containing the distance Farmer John will travel to reach Bessie.
+OUTPUT FORMAT (file gymnastics.out):
+Output, on a single line, the number of consistent pairs.
 
 SAMPLE INPUT:
 
-3 6
+3 4
+4 1 2 3
+4 1 3 2
+4 2 1 3
 
 SAMPLE OUTPUT:
 
-9
+4
 
-Problem credits: Brian Dean 
+The consistent pairs of cows are (1,4), (2,4), (3,4), and (1,3).
+
+Problem credits: Nick Wu 
